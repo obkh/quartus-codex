@@ -1,0 +1,13 @@
+db/
+incremental_db/
+output_files/
+nios_counter_system.qsys
+nios_counter_system.sopcinfo
+nios_counter_system/
+software/bsp/
+software/counter/Makefile
+software/counter/obj/
+software/counter/counter.elf
+software/counter/counter.map
+software/counter/counter.objdump
+*.qws
