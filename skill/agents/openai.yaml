@@ -1,0 +1,4 @@
+interface:
+  display_name: "Quartus Codex"
+  short_description: "Build and debug Quartus FPGA projects"
+  default_prompt: "Inspect this Quartus project, identify its tool and device versions, then follow the Quartus Codex operating manual."

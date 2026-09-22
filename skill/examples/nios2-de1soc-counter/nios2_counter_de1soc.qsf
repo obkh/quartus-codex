@@ -1,0 +1,28 @@
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY nios2_counter_de1soc
+set_global_assignment -name VERILOG_FILE nios2_counter_de1soc.v
+set_global_assignment -name QIP_FILE nios_counter_system/synthesis/nios_counter_system.qip
+set_global_assignment -name SDC_FILE nios2_counter_de1soc.sdc
+
+set_location_assignment PIN_AF14 -to CLOCK_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK_50
+set_location_assignment PIN_AA14 -to KEY[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0]
+
+set_location_assignment PIN_AE26 -to HEX0[0]
+set_location_assignment PIN_AE27 -to HEX0[1]
+set_location_assignment PIN_AE28 -to HEX0[2]
+set_location_assignment PIN_AG27 -to HEX0[3]
+set_location_assignment PIN_AF28 -to HEX0[4]
+set_location_assignment PIN_AG28 -to HEX0[5]
+set_location_assignment PIN_AH28 -to HEX0[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[6]
+
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"

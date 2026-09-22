@@ -1,0 +1,13 @@
+# Partial example for a standard Terasic DE1-SoC assignment.
+# Confirm exact board revision and port names before reuse.
+set_location_assignment PIN_AF14 -to CLOCK_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK_50
+set_location_assignment PIN_AA14 -to KEY[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0]
+set_location_assignment PIN_AE26 -to HEX0[0]
+set_location_assignment PIN_AE27 -to HEX0[1]
+set_location_assignment PIN_AE28 -to HEX0[2]
+set_location_assignment PIN_AG27 -to HEX0[3]
+set_location_assignment PIN_AF28 -to HEX0[4]
+set_location_assignment PIN_AG28 -to HEX0[5]
+set_location_assignment PIN_AH28 -to HEX0[6]
