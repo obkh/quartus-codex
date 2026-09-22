@@ -38,7 +38,7 @@ int main(void)
     unsigned int digit = 0;
 
     for (;;) {
-        IOWR_ALTERA_AVALON_PIO_DATA(HEX0_BASE, digit_segments[digit]);
+        IOWR_ALTERA_AVALON_PIO_DATA(HEX0_PIO_BASE, digit_segments[digit]);
         wait_one_second();
         digit = (digit == 8) ? 0 : digit + 1;
     }

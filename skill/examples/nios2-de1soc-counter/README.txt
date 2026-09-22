@@ -11,11 +11,12 @@ Hardware generation:
    C:\altera\13.0\quartus\sopc_builder\bin\qsys-generate.exe nios_counter_system.qsys --synthesis=VERILOG
 3. Open nios2_counter_de1soc.qpf in Quartus II 13.0 and compile the nios2_counter_de1soc revision.
 
-Nios software:
-1. Start the Nios II Command Shell from the Quartus 13.0 Start Menu group.
-2. From this folder, create a HAL BSP for nios_counter_system.sopcinfo using CPU instance cpu and the generated system timer interval_timer. Generate the BSP files.
-3. Generate an application makefile for software\counter with software\bsp as the BSP directory, then build the application.
-4. Connect and power the DE1-SoC. Program output_files\nios2_counter_de1soc.sof with Quartus Programmer.
-5. Use nios2-download to download software\counter\counter.elf over JTAG. Restart the processor; the display begins at 0.
+Nios software (from the Nios II Command Shell):
+1. Create the HAL BSP. The counter polls the interval timer directly, so do not assign it as the HAL system timer:
+   nios2-bsp hal software/bsp nios_counter_system.sopcinfo --cpu-name cpu --default_stdio jtag_uart --default_sys_timer none
+2. Generate the application makefile and build the ELF:
+   nios2-app-generate-makefile --bsp-dir software/bsp --app-dir software/counter --src-dir software/counter/src --elf-name counter.elf
+   make -C software/counter
+3. Program output_files\nios2_counter_de1soc.sof, then download software/counter/counter.elf over JTAG and restart the processor.
 
-The FPGA image and application ELF are separate. Rebuild the BSP/application whenever the Qsys hardware changes. If Quartus reports missing Cyclone V devices, install the Cyclone V device support file matching Quartus 13.0.
+The FPGA image and application ELF are separate. Rebuild the BSP/application whenever the Qsys hardware changes. If Quartus reports missing Cyclone V devices, install the matching device support. Quartus II 13.0.0 Build 156 completed synthesis and fitting here but did not emit a programming file for this part; Quartus II 13.0sp1 Web Edition lists Cyclone V device support.
